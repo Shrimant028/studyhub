@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub | Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="auth-view" class="auth-wrapper">
+        <div class="auth-left">
+            <img src="logo.png" alt="StudyHub Logo">
+            <h1>StudyHub</h1>
+            <p>Your complete engineering study companion. Manage notes, schedules, and groups all in one place.</p>
+        </div>
+
+        <div class="auth-right">
+            <div class="auth-form-box">
+                <h2 id="auth-title">Welcome Back</h2>
+                <p id="auth-subtitle" class="auth-subtitle">Please enter your details to sign in.</p>
+                
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                
+                <button class="btn-primary" id="auth-btn" onclick="handleAuth()">Sign In</button>
+                
+                <p class="auth-switch" id="auth-switch-text">
+                    Don't have an account? <span onclick="toggleAuth()">Create one now</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

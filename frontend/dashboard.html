@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub | Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-app">
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Logo"> StudyHub
+            </div>
+            <div class="nav-links">
+                <button onclick="nav('dashboard')" id="nav-dashboard">Dashboard</button>
+                <button onclick="nav('notes')" id="nav-notes">Notes</button>
+                <button onclick="nav('schedule')" id="nav-schedule">Schedule</button>
+                <button onclick="nav('groups')" id="nav-groups">Groups</button>
+                <button onclick="logout()" class="btn-logout">Logout</button>
+            </div>
+        </nav>
+
+        <main>
+            <section id="dashboard" class="page active-page">
+                <h2 class="section-title">My Dashboard</h2>
+                <div class="grid-container" id="dash-stats"></div>
+            </section>
+
+            <section id="notes" class="page">
+                <h2 class="section-title">Study Notes</h2>
+                
+                <div class="form-container">
+                    <h3>Upload New Note</h3>
+                    <input type="text" id="upload-subject" placeholder="Subject Name (e.g., Math)">
+                    <input type="file" id="file" accept=".pdf,.txt">
+                    <button class="btn-primary" onclick="uploadNote()">Upload PDF</button>
+                </div>
+
+                <div class="form-container">
+                    <h3>Search Notes</h3>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <input type="text" id="search-subject" placeholder="Search by Subject Name..." style="margin: 0; flex: 1; min-width: 150px;">
+                        <button class="btn-primary" style="width: auto; margin: 0;" onclick="fetchNotes()">Search</button>
+                    </div>
+                </div>
+
+                <div id="notes-results" class="grid-container"></div>
+            </section>
+
+            <section id="schedule" class="page">
+                <h2 class="section-title">Weekly Schedule</h2>
+                <div class="form-container">
+                    <h3>Add to Timetable</h3>
+                    <select id="sch-day">
+                        <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                        <option>Thursday</option><option>Friday</option><option>Weekend</option>
+                    </select>
+                    <input type="text" id="sch-subject" placeholder="Task/Subject Name">
+                    <input type="text" id="sch-time" placeholder="Time (e.g., 2 PM - 4 PM)">
+                    <button class="btn-primary" onclick="addSchedule()">Add to Schedule</button>
+                </div>
+                <div id="schedule-list" class="grid-container"></div>
+            </section>
+
+            <section id="groups" class="page">
+                <h2 class="section-title">Study Groups</h2>
+                <div class="form-container">
+                    <h3>Create / Join a Group</h3>
+                    <input type="text" id="group-subject" placeholder="Enter Subject Name">
+                    <button class="btn-primary" onclick="joinGroup()">Join Group</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
