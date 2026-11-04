@@ -1,4 +1,6 @@
-const API = 'http://localhost:5000';
+// The same server serves the pages and the API, so relative URLs work on any device.
+// If you open index.html straight from your files (file://), fall back to the local server.
+const API = window.location.protocol === 'file:' ? 'http://localhost:5000' : '';
 let isLogin = true;
 
 function toggleAuth() {
@@ -36,7 +38,7 @@ async function handleAuth() {
         } else {
             alert(data.message);
         }
-    } catch(e) { alert("Server error. Is Termux running?"); }
+    } catch(e) { alert("Server error. Is the backend running?"); }
 }
 
 function logout() {
@@ -102,7 +104,7 @@ async function uploadNote() {
             const data = await res.json();
             alert(data.message);
         }
-    } catch(e) { alert("Upload failed. Make sure Termux is running."); }
+    } catch(e) { alert("Upload failed. Make sure the backend is running."); }
 }
 
 async function fetchNotes() {
